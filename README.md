@@ -1,0 +1,2 @@
+# ideaology
+New ideaology site
