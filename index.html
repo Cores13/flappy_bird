@@ -25,10 +25,15 @@
               <div class="collapse navbar-collapse justify-content-end ms-auto" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                   <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">KuCoin</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">IDO</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Activeidea</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Tokenomics</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">Documents</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">News</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Contact</a></li><li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Roadmap</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">News</a></li>
                 </ul>    
               </div>
             </div>
@@ -78,12 +83,12 @@
         flex-wrap: wrap;
         margin-top: 25px;
     }
-    .home > img {
+    .rotation {
         max-width: 1000px;
-        opacity: 0.1;
+        /* opacity: 0.1; */
         /* transition: transform 1s;
         transform: rotate(360deg) translateZ(0); */
-        animation: rotation 10s infinite linear;
+        animation: rotation 30s infinite linear;
     }
     .home-items {
         display: flex;
@@ -102,24 +107,22 @@
         color: #7cb5da;
     }
 
-    @media (max-width: 1238px) {
+    @media (max-width: 1300px) {
         .home-text{
-            padding: 0px;
-        }
-    }
-    @media (max-width: 1138px) {
-        .home-text{
-            padding: 0px;
+            padding-right: 150px;
             font-size: 3rem;
         }
         .home-blue-text{
             font-size: 3rem;
         }
+        .rotation {
+        max-width: 300px;
+        }
     }
-    @media (max-width: 500px) {
+    @media (max-width: 990px) {
         .home-text{
             font-size: 2.5rem;
-            padding: 0px;
+            padding-right: 100px;
         }
         .home-blue-text{
             font-size: 2.5rem;
