@@ -36,14 +36,12 @@
     </header>
     <!-- Home DIV -->
     <div class="home" id="home">
-        <div class="home-background">
-            <div class="home-items" >
+            <!-- <div class="home-items" > -->
                 <h2 class="home-text"><strong>SUPPORT<br/>
                     BRIGHT <span class="home-blue-text">IDEA</span>S<br/>
                     THROUGH<br/>
                     CROWDFUNDING</strong></h2>
-            </div>
-        </div>
+                    <img src="logo.png"/>
     </div>
     
 </body>
@@ -67,45 +65,47 @@
         margin-right: 1px;
     }
     .navbar-nav > li:hover {
-        border: 1px solid grey;
+        background-color: rgba(0,0,0,0.03);
     }
     .logo {
         height: 50px;
     }
-    .home-background {
-        /* display: block;
-        position: static;
-        overflow:hidden;
-        top: 0;
-        height: auto;
-        background-image: url(amir.jpg);
-        background-size:contain;
-        background-position: center;
-        object-fit:auto ;
-        -o-object-fit:scale-down;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: horizontal;
-        white-space:pre-wrap;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row; */
+    .home {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+    .home > img {
+        max-width: 1000px;
+        opacity: 0.1;
     }
     .home-items {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
     }
     .home-text {
         font-weight: bold;
         font-size: 4em;
         color: #3b3b3b;
+        padding-right: 200px;
     }
     .home-blue-text{
         font-weight: bold;
         color: #7cb5da;
     }
 
-    @media (max-width: 950px) {
+    @media (max-width: 1238px) {
         .home-text{
+            padding: 0px;
+        }
+    }
+    @media (max-width: 1138px) {
+        .home-text{
+            padding: 0px;
             font-size: 3rem;
         }
         .home-blue-text{
@@ -115,6 +115,7 @@
     @media (max-width: 500px) {
         .home-text{
             font-size: 2.5rem;
+            padding: 0px;
         }
         .home-blue-text{
             font-size: 2.5rem;
