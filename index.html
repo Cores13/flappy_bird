@@ -41,7 +41,7 @@
                     BRIGHT <span class="home-blue-text">IDEA</span>S<br/>
                     THROUGH<br/>
                     CROWDFUNDING</strong></h2>
-                    <img src="logo.png"/>
+                    <img src="logo.png" class="rotation"/>
     </div>
     
 </body>
@@ -69,6 +69,7 @@
     }
     .logo {
         height: 50px;
+        
     }
     .home {
         display: flex;
@@ -80,6 +81,9 @@
     .home > img {
         max-width: 1000px;
         opacity: 0.1;
+        /* transition: transform 1s;
+        transform: rotate(360deg) translateZ(0); */
+        animation: rotation 10s infinite linear;
     }
     .home-items {
         display: flex;
@@ -129,5 +133,13 @@
             font-size: 2.2rem;
         }
     }
+    @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 </style>
 </html>
