@@ -1,0 +1,8 @@
+
+.navbar-item{
+    place-items: center;
+    justify-content: center;
+}
+.container-fluid {
+    display: flex !important;
+}
