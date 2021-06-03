@@ -11,20 +11,20 @@ const sprite = new Image();
 sprite.src = "img/sprite.png";
 
 // LOAD SOUNDS
-// const SCORE_S = new Audio();
-// SCORE_S.src = "audio/sfx_point.wav";
+const SCORE_S = new Audio();
+SCORE_S.src = "audio/sfx_point.wav";
 
-// const FLAP = new Audio();
-// FLAP.src = "audio/sfx_flap.wav";
+const FLAP = new Audio();
+FLAP.src = "audio/sfx_flap.wav";
 
-// const HIT = new Audio();
-// HIT.src = "audio/sfx_hit.wav";
+const HIT = new Audio();
+HIT.src = "audio/sfx_hit.wav";
 
-// const SWOOSHING = new Audio();
-// SWOOSHING.src = "audio/sfx_swooshing.wav";
+const SWOOSHING = new Audio();
+SWOOSHING.src = "audio/sfx_swooshing.wav";
 
-// const DIE = new Audio();
-// DIE.src = "audio/sfx_die.wav";
+const DIE = new Audio();
+DIE.src = "audio/sfx_die.wav";
 
 // GAME STATE
 const state = {
@@ -47,12 +47,12 @@ cvs.addEventListener("click", function(evt){
     switch(state.current){
         case state.getReady:
             state.current = state.game;
-            // SWOOSHING.play();
+            SWOOSHING.play();
             break;
         case state.game:
             if(bird.y - bird.radius <= 0) return;
             bird.flap();
-            // FLAP.play();
+            FLAP.play();
             break;
         case state.over:
             let rect = cvs.getBoundingClientRect();
@@ -78,12 +78,12 @@ const bg = {
     w : 275,
     h : 226,
     x : 0,
-    y : cvs.height - 226,
+    y : 0,
     
     draw : function(){
-        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, 550, 450);
         
-        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, 550, 450);
     }
     
 }
@@ -168,7 +168,7 @@ const bird = {
                 this.y = cvs.height - fg.h - this.h/2;
                 if(state.current == state.game){
                     state.current = state.over;
-                    // DIE.play();
+                    DIE.play();
                 }
             }
             
@@ -273,12 +273,12 @@ const pipes = {
             // TOP PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > p.y && bird.y - bird.radius < p.y + this.h){
                 state.current = state.over;
-                // HIT.play();
+                HIT.play();
             }
             // BOTTOM PIPE
             if(bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + this.w && bird.y + bird.radius > bottomPipeYPos && bird.y - bird.radius < bottomPipeYPos + this.h){
                 state.current = state.over;
-                // HIT.play();
+                HIT.play();
             }
             
             // MOVE THE PIPES TO THE LEFT
@@ -288,7 +288,7 @@ const pipes = {
             if(p.x + this.w <= 0){
                 this.position.shift();
                 score.value += 1;
-                // SCORE_S.play();
+                SCORE_S.play();
                 score.best = Math.max(score.value, score.best);
                 localStorage.setItem("best", score.best);
             }
@@ -361,4 +361,28 @@ function loop(){
     
     requestAnimationFrame(loop);
 }
+
+// function register(){
+//     var person = prompt("Please enter your e-mail", "example@email.com");
+
+//     console.log(typeof person);
+//     // if (person != null) {
+//     //     document.getElementById("demo").innerHTML =
+//     //     "Hello " + person + "! How are you today?";
+//     // }
+// }
+
+//LOGIN/REGISTER FORM
+document.querySelector("#show-login").addEventListener("click",function(){
+    document.querySelector(".popup").classList.add("active");
+  });
+  document.querySelector(".popup .close-btn").addEventListener("click",function(){
+    document.querySelector(".popup").classList.remove("active");
+});
+
+document.querySelector('#message').innerHTML = ""+score.best;
+// register();
+
+
 loop();
+
