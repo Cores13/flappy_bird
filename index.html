@@ -2,25 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Original Flappy Bird -JavaScript</title>
-    <link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-    <style>        
+    <link rel="icon" type="image/png" href="img/logo_black.png"/>
+    <title>Ideaverse</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body{
+            display: flex;
+            flex-direction:column;
+            justify-content: flex-start;
+            background-color: rgb(63, 63, 63);
+            margin-top: 25px;
+        }
+        .container{
+            display: flex;
+            flex-direction:row;
+            justify-content: flex-start;
+        }
+        .container > .right-side > p{
+            padding-top: 20px;
+            padding-left: 25px;
+            color: white;
+            font-size: 3rem;
+            font-weight: 100;
+        }
+        .right-side {
+            display:flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+        }
         canvas{
             border: 1px solid #000;
-            display: block;
-            margin: 0 auto;
+            margin-left: 30px;
+            width:320px;
+            height:480px;
         }
-
+        
         * {
             margin:0px;
             padding:0px;
             box-sizing:border-box;
+            font-family: 'Odibee Sans', cursive;
+        }
+        #logo_white{
+            padding-bottom: 20px;
+            padding-left: 20px;
+            width:10%;
+            height:auto;
         }
         .center {
-            position:absolute;
-            top:10%;
-            left:10%;
-            transform:translate(-50%,-50%);
+            padding-left: 20px;
         }
         .center button {
             padding:10px 20px;
@@ -55,6 +88,7 @@
             transition:top 0ms ease-in-out 0ms,
                     opacity 200ms ease-in-out 0ms,
                     transform 200ms ease-in-out 0ms;
+            z-index: 2;
         }
         .popup .close-btn {
             position:absolute;
@@ -69,16 +103,16 @@
             border-radius:15px;
             cursor:pointer;
         }
-        .popup .form h2 {
+        .popup .form form h2 {
             text-align:center;
             color:#222;
             margin:10px 0px 20px;
             font-size:25px;
         }
-        .popup .form .form-element {
+        .popup .form form .form-element {
             margin:15px 0px;
         }
-        .popup .form .form-element label {
+        .popup .form form .form-element label {
             font-size:14px;
             color:#222;
         }
@@ -91,7 +125,7 @@
             border:1px solid #aaa;
             border-radius:5px;
         }
-        .popup .form .form-element button {
+        .popup .form form .form-element button {
             width:100%;
             height:40px;
             border:none;
@@ -102,32 +136,49 @@
             border-radius:10px;
             cursor:pointer;
         }
+
+        @media (max-width: 930px){
+            .container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="center">
-        <button id="show-login">Submit score</button>
-      </div>
-      <div class="popup">
-        <div class="close-btn">&times;</div>
-        <div class="form">
-            <h2>Submit score</h2>
-            <form action="https://formspree.io/f/xrgrqqep"
-            method="POST" target="_blank">
-                <div class="form-element">
-                    <label for="email">Your e-mail</label>
-                    <input id="email" type="email" name="_replyto" placeholder="example@email.com">
-                </div>
-                <textarea id="message" name="message" hidden></textarea>
-                <div class="form-element">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+    <img id="logo_white" src="img/logo_white.svg" alt="Ideaology logo"/>
+    <div class="container">
+        <div class="center">
+            <button id="show-login">Submit score</button>
         </div>
-      </div>
+        <div class="popup">
+            <div class="close-btn">&times;</div>
+            <div class="form">
+                <h2>Submit score</h2>
+                <form action="https://formspree.io/f/xrgrqqep"
+                method="POST" target="_blank">
+                    <div class="form-element">
+                        <label for="email">Your e-mail</label>
+                        <input id="email" type="email" name="_replyto" placeholder="example@email.com">
+                    </div>
+                    <textarea id="message" name="message" hidden></textarea>
+                    <div class="form-element">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <canvas id="bird" width="320" height="480"></canvas>
-
+        <canvas id="bird" width="320" height="480"></canvas>
+        <div class="right-side">
+            <p>Take the <span style="background: #00E5FF;
+                background: -webkit-repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
+                background: -moz-repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
+                background: repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                ">Ideabot</span> as far as you can without crashing his flying saucer. How far can you go?</p>
+        </div>
+    </div>
     <script src="game.js"></script>
 </body>
 </html>

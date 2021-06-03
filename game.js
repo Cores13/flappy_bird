@@ -75,8 +75,8 @@ cvs.addEventListener("click", function(evt){
 const bg = {
     sX : 0,
     sY : 0,
-    w : 275,
-    h : 226,
+    w : 330,
+    h : 240,
     x : 0,
     y : 0,
     
@@ -95,7 +95,7 @@ const fg = {
     w: 224,
     h: 112,
     x: 0,
-    y: cvs.height - 112,
+    y: cvs.height - 110,
     
     dx : 2,
     
@@ -120,10 +120,10 @@ const bird = {
         {sX: 276, sY : 164},
         {sX: 276, sY : 139}
     ],
-    x : 50,
-    y : 150,
+    x : 44,
+    y : 146,
     w : 34,
-    h : 26,
+    h : 24,
     
     radius : 12,
     
@@ -191,7 +191,7 @@ const bird = {
 const getReady = {
     sX : 0,
     sY : 228,
-    w : 173,
+    w : 172,
     h : 152,
     x : cvs.width/2 - 173/2,
     y : 80,
@@ -208,7 +208,7 @@ const getReady = {
 const gameOver = {
     sX : 175,
     sY : 228,
-    w : 225,
+    w : 224,
     h : 202,
     x : cvs.width/2 - 225/2,
     y : 90,
@@ -362,17 +362,7 @@ function loop(){
     requestAnimationFrame(loop);
 }
 
-// function register(){
-//     var person = prompt("Please enter your e-mail", "example@email.com");
-
-//     console.log(typeof person);
-//     // if (person != null) {
-//     //     document.getElementById("demo").innerHTML =
-//     //     "Hello " + person + "! How are you today?";
-//     // }
-// }
-
-//LOGIN/REGISTER FORM
+//SUBMIT SCORE FORM
 document.querySelector("#show-login").addEventListener("click",function(){
     document.querySelector(".popup").classList.add("active");
   });
@@ -381,7 +371,6 @@ document.querySelector("#show-login").addEventListener("click",function(){
 });
 
 document.querySelector('#message').innerHTML = ""+score.best;
-// register();
 
 
 loop();
