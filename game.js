@@ -35,11 +35,17 @@ const state = {
 }
 
 // START BUTTON COORD
-const startBtn = {
-    x : 280,
-    y : 516,
-    w : 166,
-    h : 58
+const startBtn1 = {
+    x : 207,
+    y : 437,
+    w : 140,
+    h : 45
+}
+const startBtn2 = {
+    x : 150,
+    y : 297,
+    w : 100,
+    h : 35
 }
 
 // CONTROL THE GAME
@@ -60,12 +66,22 @@ cvs.addEventListener("click", function(evt){
             let clickY = evt.clientY - rect.top;
             
             // CHECK IF WE CLICK ON THE START BUTTON
-            if(clickX >= startBtn.x && clickX <= startBtn.x + startBtn.w && clickY >= startBtn.y && clickY <= startBtn.y + startBtn.h){
+            if(window.innerHeight >700){
+                if(clickX >= startBtn1.x && clickX <= startBtn1.x + startBtn1.w && clickY >= startBtn1.y && clickY <= startBtn1.y + startBtn1.h){
                 pipes.reset();
                 bird.speedReset();
                 score.reset();
                 state.current = state.getReady;
+                }
+            }else if(window.innerHeight <=700){
+                if(clickX >= startBtn2.x && clickX <= startBtn2.x + startBtn2.w && clickY >= startBtn2.y && clickY <= startBtn2.y + startBtn2.h){
+                    pipes.reset();
+                    bird.speedReset();
+                    score.reset();
+                    state.current = state.getReady;
+                    }
             }
+            
             break;
     }
 });
@@ -215,15 +231,14 @@ const gameOver = {
     
     draw: function(){
         if(state.current == state.over){
+            document.querySelector('#message').innerHTML = ""+ parseInt(localStorage.getItem("best"));
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
-              if(score.value >= 10 && score.value < 20){
+              if(score.value < 10){
                 ctx.drawImage(sprite, 312, 112, 47, 47, 71, 173, 50, 50); 
-              }else if(score.value >=20 && score.value < 30){
+              }else if(score.value >=10 && score.value < 20){
                 ctx.drawImage(sprite, 359, 112, 47, 47, 70, 175, 50, 50); 
-              }else if(score.value >=30 && score.value < 40){
+              }else if(score.value >=20 && score.value < 30){
                 ctx.drawImage(sprite, 359, 159, 47, 47, 70, 175, 50, 50); 
-              }else if(score.value >= 40){
-                ctx.drawImage(sprite, 312, 159, 47, 47, 70, 175, 50, 50); 
               }else {
 
               }
@@ -381,7 +396,7 @@ document.querySelector("#show-form").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
 });
 
-document.querySelector('#message').innerHTML = ""+score.best;
+document.querySelector('#message').innerHTML = ""+ parseInt(localStorage.getItem("best"));
 
 loop();
 
