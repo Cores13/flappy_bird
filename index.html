@@ -3,36 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="img/logo_black.png"/>
-    <title>Ideaverse</title>
+    <title>IdeaVerse</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto&display=swap" rel="stylesheet">
     <style>
-        html {
+        html,body {
             height: 100%;
             background: rgb(2,0,36);
-            background: linear-gradient(168deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 52%, rgba(0,129,255,1) 100%);
+            background: linear-gradient(168deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 52%, rgba(0,129,255,1) 100%) no-repeat center center fixed;;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
             background-size: cover;
             touch-action: manipulation;
         }
         body{
             display: flex;
             flex-direction:column;
-            justify-content: flex-start;
-            margin-top: 25px;
             font-family: 'Odibee Sans', cursive;
+            justify-content: center;
+            align-items: center;
         }
         .container{
             display: flex;
             flex-direction:row;
             justify-content: flex-start;
         }
-        .container > .right-side > p{
+        .container > .right-side > h2{
             padding-top: 20px;
             padding-left: 25px;
+            padding-right: 25px;
             color: white;
             font-size: 2.8rem;
             font-weight: 100;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+        .container > .right-side > p {
+            padding-top: 20px;
+            padding-left: 25px;
+            padding-right: 25px;
+            color: white;
+            font-size: 2rem;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -54,8 +68,8 @@
             border: 10px solid #000;
             border-radius: 20px;
             margin-left: 30px;
-            width:600px;
-            height:800px;
+            width:500px;
+            height:700px;
         }
         
         * {
@@ -66,7 +80,7 @@
         }
         #logo_white{
             position: fixed;
-            right: 20%;
+            right: 300px;
             top: 8%;
             padding-bottom: 20px;
             padding-left: 20px;
@@ -203,8 +217,8 @@
         @media (max-width: 1345px){
             .container {
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
             }
             #logo_white{
                 display:none;
@@ -241,14 +255,15 @@
         <canvas id="bird" width="320" height="480"></canvas>
         <div class="right-side">
             <img id="logo_white" src="img/logo_white.png" alt="Ideaology logo"/>
-            <p>Take the <span style="background: #00E5FF;
+            <h2>Take the <span style="background: #00E5FF;
                 background: -webkit-repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
                 background: -moz-repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
                 background: repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                ">Ideabot</span> as far as you can without crashing its flying saucer. How far can you go?</p>
+                ">Ideabot</span> as far as you can without crashing its flying saucer. How far can you go?</h2>
+                <p>We’re picking two winners with the highest scores. To submit your score, click on the ‘SUBMIT SCORE’ button and provide your email once you’re satisfied with your score. You can try getting the highest score until Tuesday, when we’re announcing the winners. The only rule is to follow @Ideaology on Twitter.</p>
                 <img id="ideaverse" src="img/ideaverse.png" alt="Ideaverse Ideaology"/>
         </div>
     </div>

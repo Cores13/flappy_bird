@@ -35,10 +35,10 @@ const state = {
 }
 
 // START BUTTON COORD
-const startBtn1 = {
-    x : 207,
-    y : 437,
-    w : 140,
+const startBtn = {
+    x : 177,
+    y : 377,
+    w : 120,
     h : 45
 }
 const startBtn2 = {
@@ -67,7 +67,7 @@ cvs.addEventListener("click", function(evt){
             
             // CHECK IF WE CLICK ON THE START BUTTON
             if(window.innerHeight >700){
-                if(clickX >= startBtn1.x && clickX <= startBtn1.x + startBtn1.w && clickY >= startBtn1.y && clickY <= startBtn1.y + startBtn1.h){
+                if(clickX >= startBtn.x && clickX <= startBtn.x + startBtn.w && clickY >= startBtn.y && clickY <= startBtn.y + startBtn.h){
                 pipes.reset();
                 bird.speedReset();
                 score.reset();
@@ -81,7 +81,6 @@ cvs.addEventListener("click", function(evt){
                     state.current = state.getReady;
                     }
             }
-            
             break;
     }
 });
@@ -98,7 +97,6 @@ const bg = {
     
     draw : function(){
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, 610, 450);
-        
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, 550, 450);
     }
     
@@ -231,7 +229,9 @@ const gameOver = {
     
     draw: function(){
         if(state.current == state.over){
+            //SCORE MESSAGE
             document.querySelector('#message').innerHTML = ""+ parseInt(localStorage.getItem("best"));
+            //GAMEOVER SCREEN WITH MEDAL
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
               if(score.value < 10){
                 ctx.drawImage(sprite, 312, 112, 47, 47, 71, 173, 50, 50); 
@@ -240,7 +240,7 @@ const gameOver = {
               }else if(score.value >=20 && score.value < 30){
                 ctx.drawImage(sprite, 359, 159, 47, 47, 70, 175, 50, 50); 
               }else {
-
+                ctx.drawImage(sprite, 359, 159, 47, 47, 70, 175, 50, 50);
               }
         }
     }
@@ -396,6 +396,7 @@ document.querySelector("#show-form").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
 });
 
+//SCORE MESSAGE
 document.querySelector('#message').innerHTML = ""+ parseInt(localStorage.getItem("best"));
 
 loop();
