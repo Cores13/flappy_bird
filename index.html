@@ -12,6 +12,8 @@
             height: 100%;
             background: rgb(2,0,36);
             background: linear-gradient(168deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 52%, rgba(0,129,255,1) 100%);
+            /* background-repeat: no-repeat; */
+            background-size: normal;
         }
         body{
             display: flex;
@@ -31,7 +33,7 @@
             padding-top: 20px;
             padding-left: 25px;
             color: white;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 100;
             user-select: none;
             -webkit-user-select: none;
@@ -65,9 +67,14 @@
             
         }
         #logo_white{
+            position: fixed;
+            right: 20%;
+            top: 8%;
             padding-bottom: 20px;
             padding-left: 20px;
-            width:12%;
+            width:20%;
+            opacity: 0.35;
+            z-index: -1;
             height:auto;
             user-select: none;
             -webkit-user-select: none;
@@ -171,19 +178,41 @@
             border-radius:10px;
             cursor:pointer;
         }
+        @media (max-width: 2000px){
+            #ideaverse {
+                height: 400px;
+            }
+        }
         @media (max-width: 1680px){
             #ideaverse {
-                height: 400px;
+                height: 300px;
+            }
+        }
+        @media (max-width: 1475px){
+            /* .container {
+                flex-direction: column;
+            } */
+            #logo_white{
+                display:none;
+            }
+            #ideaverse {
+                height: 200px;
             }
         }
         @media (max-width: 1345px){
-            #ideaverse {
-                height: 400px;
+            .container {
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
             }
-        }
-        @media (max-width: 1345px){
+            #logo_white{
+                display:none;
+            }
             #ideaverse {
-                height: 400px;
+                height: 200px;
+            }
+            .container > .right-side > p{
+                width: 500px;
             }
         }
         @media (max-width: 930px){
@@ -231,7 +260,7 @@
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                ">Ideabot</span> as far as you can without crashing his flying saucer. How far can you go?</p>
+                ">Ideabot</span> as far as you can without crashing its flying saucer. How far can you go?</p>
                 <img id="ideaverse" src="img/ideaverse.png" alt="Ideaverse Ideaology"/>
         </div>
     </div>

@@ -120,8 +120,8 @@ const bird = {
         {sX: 276, sY : 164},
         {sX: 276, sY : 139}
     ],
-    x : 44,
-    y : 146,
+    x : 45,
+    y : 145,
     w : 34,
     h : 24,
     
@@ -216,7 +216,17 @@ const gameOver = {
     draw: function(){
         if(state.current == state.over){
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
-            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
+              if(score.value >= 10 && score.value < 20){
+                ctx.drawImage(sprite, 312, 112, 47, 47, 71, 173, 50, 50); 
+              }else if(score.value >=20 && score.value < 30){
+                ctx.drawImage(sprite, 359, 112, 47, 47, 70, 175, 50, 50); 
+              }else if(score.value >=30 && score.value < 40){
+                ctx.drawImage(sprite, 359, 159, 47, 47, 70, 175, 50, 50); 
+              }else if(score.value >= 40){
+                ctx.drawImage(sprite, 312, 159, 47, 47, 70, 175, 50, 50); 
+              }else {
+
+              }
         }
     }
     
@@ -308,8 +318,8 @@ const score= {
     value : 0,
     
     draw : function(){
-        ctx.fillStyle = "blue";
-        ctx.strokeStyle = "pink";
+        ctx.fillStyle = "#FF69B4";
+        ctx.strokeStyle = "#FF69B4";
         
         if(state.current == state.game){
             ctx.lineWidth = 2;
