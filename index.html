@@ -8,12 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto&display=swap" rel="stylesheet">
     <style>
+        html {
+            height: 100%;
+            background: rgb(2,0,36);
+            background: linear-gradient(168deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 52%, rgba(0,129,255,1) 100%);
+        }
         body{
             display: flex;
             flex-direction:column;
             justify-content: flex-start;
-            background-color: rgb(63, 63, 63);
+            /* background: rgb(2,0,36); */
+            /* background: linear-gradient(168deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 52%, rgba(0,212,255,1) 100%); */
             margin-top: 25px;
+            font-family: 'Odibee Sans', cursive;
         }
         .container{
             display: flex;
@@ -26,31 +33,45 @@
             color: white;
             font-size: 3rem;
             font-weight: 100;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         .right-side {
             display:flex;
             flex-direction: column;
-            /* justify-content: center; */
             align-items: center;
+            justify-content: center;
+        }
+        #ideaverse {
+            height: 600px;
+            width: auto;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         canvas{
-            border: 1px solid #000;
+            border: 10px solid #000;
+            border-radius: 20px;
             margin-left: 30px;
-            width:320px;
-            height:480px;
+            width:640px;
+            height:960px;
         }
         
         * {
             margin:0px;
             padding:0px;
             box-sizing:border-box;
-            font-family: 'Odibee Sans', cursive;
+            
         }
         #logo_white{
             padding-bottom: 20px;
             padding-left: 20px;
-            width:10%;
+            width:12%;
             height:auto;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         .center {
             padding-left: 20px;
@@ -65,7 +86,21 @@
             outline:none;
             cursor:pointer;
             border-radius:5px;
+            background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4  51%, #E55D87  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;          
+            border-radius: 10px;
+            display: block;
         }
+        .center button:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
         .popup {
             position:absolute;
             top:-150%;
@@ -136,8 +171,27 @@
             border-radius:10px;
             cursor:pointer;
         }
-
+        @media (max-width: 1680px){
+            #ideaverse {
+                height: 400px;
+            }
+        }
+        @media (max-width: 1345px){
+            #ideaverse {
+                height: 400px;
+            }
+        }
+        @media (max-width: 1345px){
+            #ideaverse {
+                height: 400px;
+            }
+        }
         @media (max-width: 930px){
+            .container {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 450px){
             .container {
                 flex-direction: column;
             }
@@ -145,10 +199,9 @@
     </style>
 </head>
 <body>
-    <img id="logo_white" src="img/logo_white.svg" alt="Ideaology logo"/>
     <div class="container">
         <div class="center">
-            <button id="show-login">Submit score</button>
+            <button id="show-form">Submit score</button>
         </div>
         <div class="popup">
             <div class="close-btn">&times;</div>
@@ -170,13 +223,16 @@
 
         <canvas id="bird" width="320" height="480"></canvas>
         <div class="right-side">
+            <img id="logo_white" src="img/logo_white.png" alt="Ideaology logo"/>
             <p>Take the <span style="background: #00E5FF;
                 background: -webkit-repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
                 background: -moz-repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
                 background: repeating-linear-gradient(to bottom right, #00E5FF 0%, #FF47F3 100%);
+                background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 ">Ideabot</span> as far as you can without crashing his flying saucer. How far can you go?</p>
+                <img id="ideaverse" src="img/ideaverse.png" alt="Ideaverse Ideaology"/>
         </div>
     </div>
     <script src="game.js"></script>

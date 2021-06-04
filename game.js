@@ -1,7 +1,7 @@
 // SELECT CVS
 const cvs = document.getElementById("bird");
 const ctx = cvs.getContext("2d");
-
+ctx.scale(1, 1);
 // GAME VARS AND CONSTS
 let frames = 0;
 const DEGREE = Math.PI/180;
@@ -36,10 +36,10 @@ const state = {
 
 // START BUTTON COORD
 const startBtn = {
-    x : 120,
-    y : 263,
-    w : 83,
-    h : 29
+    x : 280,
+    y : 516,
+    w : 166,
+    h : 58
 }
 
 // CONTROL THE GAME
@@ -75,13 +75,13 @@ cvs.addEventListener("click", function(evt){
 const bg = {
     sX : 0,
     sY : 0,
-    w : 330,
+    w : 320,
     h : 240,
     x : 0,
     y : 0,
     
     draw : function(){
-        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, 550, 450);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, 610, 450);
         
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, 550, 450);
     }
@@ -216,6 +216,7 @@ const gameOver = {
     draw: function(){
         if(state.current == state.over){
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
         }
     }
     
@@ -307,18 +308,18 @@ const score= {
     value : 0,
     
     draw : function(){
-        ctx.fillStyle = "#FFF";
-        ctx.strokeStyle = "#000";
+        ctx.fillStyle = "blue";
+        ctx.strokeStyle = "pink";
         
         if(state.current == state.game){
             ctx.lineWidth = 2;
-            ctx.font = "35px Teko";
+            ctx.font = "35px Odibee Sans";
             ctx.fillText(this.value, cvs.width/2, 50);
             ctx.strokeText(this.value, cvs.width/2, 50);
             
         }else if(state.current == state.over){
             // SCORE VALUE
-            ctx.font = "25px Teko";
+            ctx.font = "25px Odibee Sans";
             ctx.fillText(this.value, 225, 186);
             ctx.strokeText(this.value, 225, 186);
             // BEST SCORE
@@ -363,7 +364,7 @@ function loop(){
 }
 
 //SUBMIT SCORE FORM
-document.querySelector("#show-login").addEventListener("click",function(){
+document.querySelector("#show-form").addEventListener("click",function(){
     document.querySelector(".popup").classList.add("active");
   });
   document.querySelector(".popup .close-btn").addEventListener("click",function(){
@@ -371,7 +372,6 @@ document.querySelector("#show-login").addEventListener("click",function(){
 });
 
 document.querySelector('#message').innerHTML = ""+score.best;
-
 
 loop();
 
