@@ -137,9 +137,9 @@ const bird = {
     x : 45,
     y : 145,
     w : 34,
-    h : 24,
+    h : 25,
     
-    radius : 12,
+    radius : 10,
     
     frame : 0,
     
@@ -400,4 +400,3 @@ document.querySelector("#show-form").addEventListener("click",function(){
 document.querySelector('#message').innerHTML = ""+ parseInt(localStorage.getItem("best"));
 
 loop();
-
